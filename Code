@@ -1,1 +1,97 @@
+  body {
+        font-family: 'Inter', sans-serif;
+        /* Ensure body is full screen and has dark fallback */
+        background-color: #111827; 
+    }
+    /* New class for the main title */
+    .ai-hub-title {
+        font-family: 'Michroma', sans-serif;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Subtle glow for the title */
+    }
+    .neon-text-light {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+        color: #ccf;
+    }
+    .neon-border {
+        /* General border used for terminal windows */
+        border: 1px solid #0ff;
+        box-shadow: 0 0 10px #0ff4;
+    }
+    /* Scanner line for cards */
+    .scanner-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #0ff, transparent);
+        animation: scan 3s infinite linear;
+    }
+    @keyframes scan {
+        0% { transform: translateY(0%); }
+        50% { transform: translateY(1000%); } /* A large number to cover vertical scan */
+        100% { transform: translateY(0%); }
+    }
+    /* Custom styles for hidden views */
+    .hidden-view {
+        display: none;
+    }
+    /* Custom CSS for Flowchart Arrow */
+    .flow-arrow {
+        width: 4px;
+        height: 40px;
+        background-color: #3b82f6; /* Blue for AI section */
+        margin: 10px auto;
+        position: relative;
+        box-shadow: 0 0 8px #3b82f6;
+    }
+    .flow-arrow::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: -3px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #3b82f6;
+    }
+    
+    /* Flowchart styles for 'How AI Works' */
+    .flow-node {
+        @apply bg-gray-800/80 p-3 rounded-lg border border-orange-500 shadow-lg shadow-orange-500/20 w-full text-center;
+    }
+    .flow-connector {
+        @apply w-full h-12 flex justify-center items-center;
+    }
+    .flow-connector-line {
+        @apply w-1 h-full bg-orange-500/50 relative;
+    }
+    .flow-connector-arrow {
+        @apply w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-orange-500 absolute bottom-0;
+    }
+    
+    /* Flowchart styles for 'AI Concepts' */
+    .branch-node {
+        @apply bg-gray-800/80 p-3 rounded-lg border border-blue-500 shadow-lg shadow-blue-500/20 w-full text-center z-10;
+    }
+    .branch-connector {
+        @apply relative w-1 h-12 bg-blue-500/50 mx-auto;
+    }
+    .branch-line {
+         @apply absolute left-1/2 w-1/2 h-1 bg-blue-500/50;
+    }
+    
+    /* Neural Net Viz */
+    .nn-layer {
+        @apply flex flex-col justify-center gap-4;
+    }
+    .nn-node {
+        @apply w-10 h-10 rounded-full border-2 border-orange-400 bg-gray-800 shadow-lg shadow-orange-500/30;
+    }
+    .nn-lines {
+        @apply absolute w-full h-full top-0 left-0 z-0;
+    }
 
+
+</style>
+<!-- Load Three.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
